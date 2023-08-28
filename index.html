@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3 Concepts</title>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+    
+    #app {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      width: 400px;
+    }
+    
+    h2 {
+      margin-top: 0;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 5px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Conditional Rendering -->
+    <div>
+      <h2>Conditional Rendering</h2>
+      <p v-if="showText">This text is rendered using v-if.</p>
+      <p v-else>This text is rendered using v-else.</p>
+      
+      <p v-show="showText">This text is shown using v-show.</p>
+    </div>
+    
+    <!-- List Rendering -->
+    <div>
+      <h2>List Rendering</h2>
+      <ul>
+        <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+      </ul>
+    </div>
+    
+    <!-- Form Input Handling -->
+    <div>
+      <h2>Form Input Handling</h2>
+      <input type="text" v-model="inputText">
+      <p>You typed: {{ inputText }}</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.24/dist/vue.global.min.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          showText: true,
+          items: ['Item 1', 'Item 2', 'Item 3'],
+          inputText: ''
+        };
+      }
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+</html>
